@@ -1,0 +1,4 @@
+L'istruzione a riga 12 sovrascrive la cella di memoria a lui successiva (4 byte dopo), mettendo il valore a 0. 
+Compilando con gcc, il valore di x stampato è 1. Invece con clang il valore di x stampato è 0.
+Visto quanto affermato sull'istruzione a riga 12 si può supporre che il valore stampato di x dipenda da come sono disposte le variabili in memoria.
+Nel caso di clang, il valore di x si trovava nella cella successiva del valore di y, e per questo è stato sovrascritto. Nel primo caso invece non si è verificata questa situazione.

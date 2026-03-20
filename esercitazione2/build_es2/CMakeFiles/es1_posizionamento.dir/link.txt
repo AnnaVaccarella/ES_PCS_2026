@@ -1,0 +1,1 @@
+/usr/bin/c++  -Wall -Wshadow -Werror=vla -Wl,--dependency-file=CMakeFiles/es1_posizionamento.dir/link.d CMakeFiles/es1_posizionamento.dir/es1_posizionamento.cpp.o -o es1_posizionamento

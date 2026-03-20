@@ -1,0 +1,1 @@
+/usr/bin/c++  -Wall -Wshadow -Werror=vla -Wl,--dependency-file=CMakeFiles/es2_primi_algoritmi.dir/link.d CMakeFiles/es2_primi_algoritmi.dir/es2_primi_algoritmi.cpp.o -o es2_primi_algoritmi
