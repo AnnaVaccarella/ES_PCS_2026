@@ -1,0 +1,22 @@
+Come si può notare dal grafico, per le dimensioni più basse (fino a circa N=20) il merge-sort è peggiore di tutti gli altri algoritmi. Per le dimensioni successive, prestazioni peggiori si hanno prima con il bubble-sort (circa da N=20) e poi da std::sort (circa da N=50). Tutti gli altri algoritmi offrono prestazioni migliori del merge-sort.
+Prendendo invece in considerazione il quick-sort, gli unici algoritmi che offrono prestazioni praticamente simili per N piccoli sono std::sort e insertion-sort (nel dettaglio, si nota come da N=5 fino a N=16 std::sort sia migliore di quick-sort, per questa soglia si veda l'immagine 'dettaglio_soglia_grafico.png'), ma poi a partire proprio da N=16 inizia a peggiorare le sue prestazioni e a superare prima il quick-sort e poi anche selection-sort e merge-sort (come già anticipato prima).
+Il quick-sort si dimostra migliore di tutti gli altri algoritmi di ordinamento aumentando la dimensione degli array, ad eccezion fatta dell'insertion-sort che dall'inizio alla fine rimane il migliore (almeno per le misure calcolate per array fino a dimensione 64 come è stato fatto in questo caso).
+Per questo, possiamo proporre la seguente versione migliorata del quick-sort:
+
+template<typename T>
+void quick_sort_migliorato(std::vector<T>& vec, int p, int r) {
+    if (p < r) {
+        // Se la dimensione del sottovettore è minore di 16, usare std::sort per l'ordinamento dell'intervallo [p,r] dell'array
+        if (r - p + 1 < 16) { 
+            std::sort(vec.begin()+p, vec.begin()+r+1); 
+        } else {
+            int q = partition(vec, p, r);
+            quick_sort_migliorato(vec, p, q - 1);
+            quick_sort_migliorato(vec, q + 1, r);
+        }
+    }
+}
+
+Viene preso come punto N=16 perché  fino a lì  il quick-sort ha prestazioni peggiori sia del std::sort che dell'insertion-sort.
+La seguente versione è stata anche inserita all'interno del file 'sort.hpp' nella cartella 'build_release'.
+Le seguenti considerazioni sono state fatte prendendo come riferimento i dati contenuti nel file 'tempi_ordinamento.csv' contenuto nella cartella 'build_release'. Non ho considerato le tempistiche per la versione Debug dato che i tempi di ordinamento sono maggiori di quelli della versione Release perché vengono falsati dalle tempistiche del compilatore.
