@@ -1,0 +1,4 @@
+/home/pcsdocker/Data/ES_PCS_2026/esercitazione10/build_es10/CMakeFiles/main_program.dir
+/home/pcsdocker/Data/ES_PCS_2026/esercitazione10/build_es10/CMakeFiles/test_program.dir
+/home/pcsdocker/Data/ES_PCS_2026/esercitazione10/build_es10/CMakeFiles/edit_cache.dir
+/home/pcsdocker/Data/ES_PCS_2026/esercitazione10/build_es10/CMakeFiles/rebuild_cache.dir
